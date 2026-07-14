@@ -1,0 +1,26 @@
+# Python virtual environment
+venv/
+.venv/
+env/
+ENV/
+
+# Environments (Passwords and API Keys)
+.env
+
+# Database local configurations (just in case)
+*.local
+
+# IDEs and editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# OS generated files
+Thumbs.db
+db.json
+ehthumbs.db
+Desktop.ini
