@@ -2,12 +2,15 @@ from fastapi import FastAPI, Depends
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 from app.database import get_db, engine
-from app import models  # <--- ضفنا دي هنا
+from app import models, routers  # ضفنا الـ routers والـ models هنا
 
-# أمر سحري: إنشاء جميع الجداول في قاعدة البيانات تلقائياً لو مش موجودة
+# إنشاء الجداول تلقائياً في قاعدة البيانات
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="AI Media Factory API", version="1.0")
+
+# ربط راوتر الحسابات بالسيرفر
+app.include_router(routers.router)
 
 @app.get("/")
 def read_root():
